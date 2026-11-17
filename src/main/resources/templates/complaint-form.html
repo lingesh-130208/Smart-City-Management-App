@@ -1,0 +1,39 @@
+&lt;!DOCTYPE html&gt;
+&lt;html xmlns:th="http://www.thymeleaf.org"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Submit Complaint&lt;/title&gt;
+    &lt;link rel="stylesheet" th:href="@{/style.css}"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;h1&gt;Submit a Complaint&lt;/h1&gt;
+        &lt;form th:action="@{/complaints}" th:object="${complaint}" method="post"&gt;
+            &lt;label for="citizenName"&gt;Your Name:&lt;/label&gt;
+            &lt;input type="text" id="citizenName" th:field="*{citizenName}" required&gt;
+
+            &lt;label for="email"&gt;Email:&lt;/label&gt;
+            &lt;input type="email" id="email" th:field="*{email}" required&gt;
+
+            &lt;label for="category"&gt;Category:&lt;/label&gt;
+            &lt;select id="category" th:field="*{category}" required&gt;
+                &lt;option value=""&gt;-- Select Category --&lt;/option&gt;
+                &lt;option value="Water Supply"&gt;Water Supply&lt;/option&gt;
+                &lt;option value="Roads"&gt;Roads&lt;/option&gt;
+                &lt;option value="Streetlights"&gt;Streetlights&lt;/option&gt;
+                &lt;option value="Waste Management"&gt;Waste Management&lt;/option&gt;
+            &lt;/select&gt;
+
+            &lt;label for="description"&gt;Description:&lt;/label&gt;
+            &lt;textarea id="description" th:field="*{description}" rows="5" required&gt;&lt;/textarea&gt;
+
+            &lt;label for="location"&gt;Location:&lt;/label&gt;
+            &lt;input type="text" id="location" th:field="*{location}" required&gt;
+
+            &lt;button type="submit"&gt;Submit Complaint&lt;/button&gt;
+        &lt;/form&gt;
+        &lt;a th:href="@{/}"&gt;&lt; Back to Home&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
